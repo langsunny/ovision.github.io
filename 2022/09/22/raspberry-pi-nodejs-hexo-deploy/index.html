@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://ovision.github.io/img/hexo_bak.png">
 <meta property="article:published_time" content="2022-09-22T13:46:43.000Z">
-<meta property="article:modified_time" content="2022-09-22T13:05:32.057Z">
+<meta property="article:modified_time" content="2022-09-22T13:14:16.247Z">
 <meta property="article:author" content="OVision Group">
 <meta property="article:tag" content="github">
 <meta property="article:tag" content="树莓派">
@@ -202,13 +202,35 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xavf node-v12.13.1-linux-armv7l.tar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>将二进制包移动到&#x2F;usr&#x2F;local&#x2F;node目录下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mv .node-v12.13.1-linux-armv7l /usr/local/node</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">为node和npm建立软连接：</span><br></pre></td></tr></table></figure>
-<p>sudo ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;node &#x2F;usr&#x2F;bin&#x2F;node<br>sudo ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;npm &#x2F;usr&#x2F;bin&#x2F;npm</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试node和npm安装是否成功。</span><br></pre></td></tr></table></figure>
-<p>node -v<br>npm -v</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 步骤3 安装Hexo</span><br><span class="line"></span><br><span class="line">完成上述环境需求后，即可使用npm安装Hexo.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>$ npm install -g hexo-cli</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">### 配置Hexo工作环境</span><br><span class="line">* 步骤4 简单配置Hexo工作环境</span><br><span class="line"></span><br><span class="line">Hexo需要一个独立的文件夹作为博客的管理空间，首先进入家目录：/home/xxx/，使用mkdir blog命令创建一个博客文件夹，得到博客的目录：/home/pi/blog/，在该目录下，输入命令：</span><br><span class="line"></span><br><span class="line">`#hexo init` 有时还需要`npm install`</span><br><span class="line"></span><br><span class="line">等待该命令的执行，以完成博客环境的初始化，此命令只有在第一次创建博客环境时需要执行。</span><br><span class="line"></span><br><span class="line">其中博客存放在Blog/source/_posts目录下，假设当前已经有写好的文章(Hexo初始化后存在一篇HelloWorld.md文章)，在Blog/下输入以下命令来生成静态博客：</span><br><span class="line"></span><br><span class="line">`# hexo g`</span><br><span class="line"></span><br><span class="line">该命令将解析生成的静态博客存放在目录/Blog/public/下。要想看到博客的网页效果，可使用以下命令：</span><br><span class="line"></span><br><span class="line">`# hexo s`</span><br><span class="line"></span><br><span class="line">执行该命令后终端打印出：</span><br><span class="line"></span><br><span class="line">&gt; INFO Start processing</span><br><span class="line">&gt; INFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br><span class="line"></span><br><span class="line">在本地浏览器中输入上述url即可看到静态网页</span><br><span class="line"></span><br><span class="line">如果是部署在github上的博客,要更改博客根目录下_config.yml文件,添加一下内容:</span><br><span class="line"></span><br><span class="line">``` stylus</span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: git@github.com:/ovision/ovision.github.io.git  </span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv .node-v12.13.1-linux-armv7l /usr/local/node</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>为node和npm建立软连接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/local/node/bin/node /usr/bin/node</span><br><span class="line">sudo ln -s /usr/local/node/bin/npm /usr/bin/npm</span><br></pre></td></tr></table></figure>
+
+<p>测试node和npm安装是否成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<ul>
+<li>步骤3 安装Hexo</li>
+</ul>
+<p>完成上述环境需求后，即可使用npm安装Hexo.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="配置Hexo工作环境"><a href="#配置Hexo工作环境" class="headerlink" title="配置Hexo工作环境"></a>配置Hexo工作环境</h3><ul>
+<li>步骤4 简单配置Hexo工作环境</li>
+</ul>
+<p>Hexo需要一个独立的文件夹作为博客的管理空间，首先进入家目录：&#x2F;home&#x2F;xxx&#x2F;，使用mkdir blog命令创建一个博客文件夹，得到博客的目录：&#x2F;home&#x2F;pi&#x2F;blog&#x2F;，在该目录下，输入命令：</p>
+<p><code>#hexo init</code> 有时还需要<code>npm install</code></p>
+<p>等待该命令的执行，以完成博客环境的初始化，此命令只有在第一次创建博客环境时需要执行。</p>
+<p>其中博客存放在Blog&#x2F;source&#x2F;_posts目录下，假设当前已经有写好的文章(Hexo初始化后存在一篇HelloWorld.md文章)，在Blog&#x2F;下输入以下命令来生成静态博客：</p>
+<p><code># hexo g</code></p>
+<p>该命令将解析生成的静态博客存放在目录&#x2F;Blog&#x2F;public&#x2F;下。要想看到博客的网页效果，可使用以下命令：</p>
+<p><code># hexo s</code></p>
+<p>执行该命令后终端打印出：</p>
+<blockquote>
+<p>INFO Start processing<br>INFO Hexo is running at <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>. Press Ctrl+C to stop.</p>
+</blockquote>
+<p>在本地浏览器中输入上述url即可看到静态网页</p>
+<p>如果是部署在github上的博客,要更改博客根目录下_config.yml文件,添加一下内容:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:<span class="comment">//hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: git@github<span class="selector-class">.com</span>:/ovision/ovision<span class="selector-class">.github</span><span class="selector-class">.io</span><span class="selector-class">.git</span>  </span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
 <p>部署程序需要安装</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
 <p>在blog根目录下执行：</p>
@@ -220,7 +242,7 @@
 <p>或者用github备份与恢复。本地资料丢失,或着重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤：</p>
 <blockquote>
 <ul>
-<li>使用git clone <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:ovision&#x2F;ovision.github.io.git 拷贝仓库（默认分支为hexo）；</li>
+<li>使用git clone <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:ovision&#x2F;ovision.github.io.git 拷贝仓库（默认分支为hexo）；</li>
 <li>在本地新拷贝的ovision.github.io文件夹下通过Git bash依次执行下列指令：npm install hexo、npm install、npm install hexo-deployer-git（记得，不需要hexo init这条指令–hexo init会清空.git 文件夹（即版本控制信息会丢失）。<br>树莓派的话可以随身携带,到哪里都可以写blog了.</li>
 </ul>
 </blockquote>
