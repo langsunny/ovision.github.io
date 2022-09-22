@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ovision.github.io">
-  <title>Archives | OVision科研小组博客</title>
+  <title>树莓派安装hexo并部署github博客完整教程 | OVision科研小组博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录科研过程中的点滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="OVision科研小组博客">
-<meta property="og:url" content="http://ovision.github.io/archives/page/2/index.html">
+  <meta name="description" content="安装Hexo博客生成工具树莓派上可安装的静态博客工具种类繁多，此处介绍Hexo博客生成工具，Hexo具备简单易用、主题丰富等特点，被广泛应用在Github Page博客中，关于Hexo的特点，更多详情可访问Hexo官网。本文使用Hexo搭建博客，要使用Hexo建站，需要实现以下几个步骤。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派安装hexo并部署github博客完整教程">
+<meta property="og:url" content="http://ovision.github.io/2022/09/22/raspberry-pi-nodejs-hexo-deploy/index.html">
 <meta property="og:site_name" content="OVision科研小组博客">
-<meta property="og:description" content="记录科研过程中的点滴">
+<meta property="og:description" content="安装Hexo博客生成工具树莓派上可安装的静态博客工具种类繁多，此处介绍Hexo博客生成工具，Hexo具备简单易用、主题丰富等特点，被广泛应用在Github Page博客中，关于Hexo的特点，更多详情可访问Hexo官网。本文使用Hexo搭建博客，要使用Hexo建站，需要实现以下几个步骤。">
 <meta property="og:locale">
+<meta property="og:image" content="http://ovision.github.io/img/hexo_bak.png">
+<meta property="article:published_time" content="2022-09-22T13:46:43.000Z">
+<meta property="article:modified_time" content="2022-09-22T13:05:32.057Z">
 <meta property="article:author" content="OVision Group">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="树莓派">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ovision.github.io/img/hexo_bak.png">
   
     <link rel="alternative" href="/atom.xml" title="OVision科研小组博客" type="application/atom+xml">
   
@@ -158,546 +166,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-raspberry-pi-nodejs-hexo-deploy" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/29/ex1_gpio_key/" class="archive-article-date">
-  	<time datetime="2019-10-29T11:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/29/ex1_gpio_key/">实验1:-gpio模块</a>
+    <h1 class="article-title" itemprop="name">
+      树莓派安装hexo并部署github博客完整教程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/09/22/raspberry-pi-nodejs-hexo-deploy/" class="archive-article-date">
+  	<time datetime="2022-09-22T13:46:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装Hexo博客生成工具"><a href="#安装Hexo博客生成工具" class="headerlink" title="安装Hexo博客生成工具"></a>安装Hexo博客生成工具</h3><p>树莓派上可安装的静态博客工具种类繁多，此处介绍Hexo博客生成工具，Hexo具备简单易用、主题丰富等特点，被广泛应用在Github Page博客中，关于Hexo的特点，更多详情可访问Hexo官网。本文使用Hexo搭建博客，要使用Hexo建站，需要实现以下几个步骤。</p>
+<span id="more"></span>
+<ul>
+<li>步骤1 安装Git</li>
+</ul>
+<p>确保你的树莓派已经安装了Git代码工具(貌似不推送到Github Page的话可不安装)</p>
+<p>Debian: sudo apt-get install git-core</p>
+<p>树莓派3B的Debian系统自带Git工具，可跳过此步。</p>
+<ul>
+<li>步骤2 安装Node.js</li>
+</ul>
+<p>然后登陆node.js的官网，下载Recommended For Most Users的版本，我的树莓派4b是arm7构架，所以选择Linux Binaries （ARM）中arm7的版本。下载到本地后，发现是一个gz类型的压缩文件。</p>
+<p>cURL:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xavf node-v12.13.1-linux-armv7l.tar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将二进制包移动到&#x2F;usr&#x2F;local&#x2F;node目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mv .node-v12.13.1-linux-armv7l /usr/local/node</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">为node和npm建立软连接：</span><br></pre></td></tr></table></figure>
+<p>sudo ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;node &#x2F;usr&#x2F;bin&#x2F;node<br>sudo ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;npm &#x2F;usr&#x2F;bin&#x2F;npm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试node和npm安装是否成功。</span><br></pre></td></tr></table></figure>
+<p>node -v<br>npm -v</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 步骤3 安装Hexo</span><br><span class="line"></span><br><span class="line">完成上述环境需求后，即可使用npm安装Hexo.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>$ npm install -g hexo-cli</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">### 配置Hexo工作环境</span><br><span class="line">* 步骤4 简单配置Hexo工作环境</span><br><span class="line"></span><br><span class="line">Hexo需要一个独立的文件夹作为博客的管理空间，首先进入家目录：/home/xxx/，使用mkdir blog命令创建一个博客文件夹，得到博客的目录：/home/pi/blog/，在该目录下，输入命令：</span><br><span class="line"></span><br><span class="line">`#hexo init` 有时还需要`npm install`</span><br><span class="line"></span><br><span class="line">等待该命令的执行，以完成博客环境的初始化，此命令只有在第一次创建博客环境时需要执行。</span><br><span class="line"></span><br><span class="line">其中博客存放在Blog/source/_posts目录下，假设当前已经有写好的文章(Hexo初始化后存在一篇HelloWorld.md文章)，在Blog/下输入以下命令来生成静态博客：</span><br><span class="line"></span><br><span class="line">`# hexo g`</span><br><span class="line"></span><br><span class="line">该命令将解析生成的静态博客存放在目录/Blog/public/下。要想看到博客的网页效果，可使用以下命令：</span><br><span class="line"></span><br><span class="line">`# hexo s`</span><br><span class="line"></span><br><span class="line">执行该命令后终端打印出：</span><br><span class="line"></span><br><span class="line">&gt; INFO Start processing</span><br><span class="line">&gt; INFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br><span class="line"></span><br><span class="line">在本地浏览器中输入上述url即可看到静态网页</span><br><span class="line"></span><br><span class="line">如果是部署在github上的博客,要更改博客根目录下_config.yml文件,添加一下内容:</span><br><span class="line"></span><br><span class="line">``` stylus</span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: git@github.com:/ovision/ovision.github.io.git  </span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<p>部署程序需要安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>在blog根目录下执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<h3 id="备份与恢复Hexo"><a href="#备份与恢复Hexo" class="headerlink" title="备份与恢复Hexo"></a>备份与恢复Hexo</h3><ul>
+<li>步骤5 备份与恢复Hexo工作环境<br>Hexo网站备份只需备份源文件和几个yml文件就可以了(图中高亮部分)，重新安装hexo后，把这几个文件和文件夹，覆盖一下就可以，恢复了。如同所示：</li>
+</ul>
+<p><img src="/img/hexo_bak.png" alt="Hexo网站备份"></p>
+<p>或者用github备份与恢复。本地资料丢失,或着重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤：</p>
+<blockquote>
+<ul>
+<li>使用git clone <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:ovision&#x2F;ovision.github.io.git 拷贝仓库（默认分支为hexo）；</li>
+<li>在本地新拷贝的ovision.github.io文件夹下通过Git bash依次执行下列指令：npm install hexo、npm install、npm install hexo-deployer-git（记得，不需要hexo init这条指令–hexo init会清空.git 文件夹（即版本控制信息会丢失）。<br>树莓派的话可以随身携带,到哪里都可以写blog了.</li>
+</ul>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">GPIO</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LED</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/research//" class="article-tag-list-link color4">research</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/17/stm32-fsm-tutorial/" class="archive-article-date">
-  	<time datetime="2018-11-17T11:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/17/stm32-fsm-tutorial/">基于状态机控制的面向对象的前后台协从多任务系统设计</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">stm32</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
         		</li>
       		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">状态机</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">fsm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/research//" class="article-tag-list-link color4">research</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/29/Arduino-awesome-source/" class="archive-article-date">
-  	<time datetime="2018-10-29T22:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/29/Arduino-awesome-source/">Arduino awesome source 资源列表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Arduino</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/21/Start%20Training%20YOLO%20with%20Our%20Own%20Data%20based%20on%20Keras/" class="archive-article-date">
-  	<time datetime="2018-09-21T13:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/21/Start%20Training%20YOLO%20with%20Our%20Own%20Data%20based%20on%20Keras/">Start Training YOLO V3 with Our Own Data based on Keras</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Keras</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tensorflow</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YOLO</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/research//" class="article-tag-list-link color4">research</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/15/Easily%20Backup%20and%20Clone%20Raspberry%20PI%20Image/" class="archive-article-date">
-  	<time datetime="2018-08-15T15:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/15/Easily%20Backup%20and%20Clone%20Raspberry%20PI%20Image/">Easily Backup and Clone Raspberry PI Image</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/drafts%20test/" class="archive-article-date">
-  	<time datetime="2018-08-13T15:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/drafts%20test/">让你的Hexo博客支持LaTex公式写作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Latex</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">RMarkdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/research//" class="article-tag-list-link color4">research</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://ovision.github.io/2022/09/22/raspberry-pi-nodejs-hexo-deploy/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/posted%20by%20atom%20markdown%20writer/" class="archive-article-date">
-  	<time datetime="2018-08-13T15:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/09/13/latex_tinytex_rstudio/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">小体积Latex环境搭建与使用：TinyTex+RStudio+VScode</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/posted%20by%20atom%20markdown%20writer/">posted by atom markdown writer</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/12/raspberry-pi-cloudprint/" class="archive-article-date">
-  	<time datetime="2018-04-12T21:02:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/12/raspberry-pi-cloudprint/">A Raspberry Pi Cloud Print Proxy</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">raspberry pi</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Google</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cloudprint</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/research//" class="article-tag-list-link color4">research</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Installing-Caffe-Ubuntu-cpu-only/" class="archive-article-date">
-  	<time datetime="2018-03-19T22:02:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Installing-Caffe-Ubuntu-cpu-only/">Installing Caffe on Ubuntu (CPU-ONLY)</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine-learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep-learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">caffe</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">installation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">environment</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">essential</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/research//" class="article-tag-list-link color4">research</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Installing-Caffe-Ubuntu/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:02:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Installing-Caffe-Ubuntu/">Installing Caffe on Ubuntu 16.04 (GPU Mode with CUDA)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine-learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep-learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">caffe</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gpu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cuda</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/research//" class="article-tag-list-link color4">research</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -722,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
