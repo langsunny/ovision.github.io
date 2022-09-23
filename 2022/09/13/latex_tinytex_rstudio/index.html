@@ -16,7 +16,7 @@
 <meta property="og:description" content="0为什么选择安装TinyTeX而不要TeXLiveTinyTeX 是一个瘦身版的 TeX Live。TeX Live 的庞大体型问题困扰我多年，其实方案很简单：把对普通用户毫无用处的源代码和文档去掉即可。最终精简安装TinyTeX体积不到200M，完全安装大约1.8G。 如果你安装了R语言的话，安装TinyTeX仅仅需要两行代码。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-09-13T10:09:42.000Z">
-<meta property="article:modified_time" content="2022-09-14T16:15:08.528Z">
+<meta property="article:modified_time" content="2022-09-22T15:21:27.349Z">
 <meta property="article:author" content="OVision Group">
 <meta property="article:tag" content="Latex">
 <meta property="article:tag" content="RMarkdown">
@@ -201,7 +201,7 @@
 <p>如果有问题请查看官网详细帮助文档：<a target="_blank" rel="noopener" href="https://yihui.org/tinytex/">https://yihui.org/tinytex/</a>  </p>
 <p>以及The binary packages of TinyTeX are released on the monthly basis to the Github repo <a target="_blank" rel="noopener" href="https://github.com/rstudio/tinytex-releases">https://github.com/rstudio/tinytex-releases</a></p>
 <h2 id="5-TinyTeX的基本使用"><a href="#5-TinyTeX的基本使用" class="headerlink" title="5 TinyTeX的基本使用"></a>5 TinyTeX的基本使用</h2><p>由于使用时，肯定需要下载LaTeX宏包，所以先修改为国内镜像源，比如改为中科大大学的镜像源：<br>在RStudio中输入命令流：</p>
-<p><code>   tlmgr_repo(url = &quot;http://mirrors.tuna.ustc.edu.cn/CTAN/&quot;)    </code></p>
+<p><code>   tlmgr_repo(url = &quot;http://mirrors.tuna.ustc.edu.cn/CTAN/&quot;)    </code><br>或者<code>tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet</code></p>
 <h3 id="5-1使用RStudio-的IDE新建tex-hello-world"><a href="#5-1使用RStudio-的IDE新建tex-hello-world" class="headerlink" title="5.1使用RStudio 的IDE新建tex  hello world"></a>5.1使用RStudio 的IDE新建tex  hello world</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;ctexart&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line"></span><br><span class="line">TinyTex  可以正常使用吗？</span><br><span class="line"></span><br><span class="line">可以。</span><br><span class="line"></span><br><span class="line">再来个数学公式：</span><br><span class="line"></span><br><span class="line">$$ </span><br><span class="line">e^&#123;ix&#125;= \cos x + i \sin x </span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>点保存，后缀名用 .tex，即保存为 Latex 文件。点 Compile PDF 按钮运行，正常会生成pdf文件。</p>
@@ -210,11 +210,11 @@
 <p>这表明缺少 ctex 宏包（这里的ctex仅为举例），那就安装该宏包，windows 命令窗口输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tlmgr install ctex</span><br></pre></td></tr></table></figure>
 <p>如果还不行更新系统</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tlmgr update --self --all</span><br><span class="line">tlmgr path add</span><br><span class="line">fmtutil-sys --all</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tlmgr update --self --all</span><br><span class="line">tlmgr update --self --all</span><br><span class="line">tlmgr path add</span><br><span class="line">fmtutil-sys --all</span><br></pre></td></tr></table></figure>
 <p>如果是R语言用户在console中运行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tlmgr_install(&quot;ctex&quot;) </span><br></pre></td></tr></table></figure>
 <p>仍有问题试着运行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library(tinytex)</span><br><span class="line">tlmgr_search(&#x27;/times.sty&#x27;)   # search for times.sty</span><br><span class="line">tlmgr_install(&#x27;psnfss&#x27;)      # install the psnfss package</span><br><span class="line">tlmgr_update()               # update everything</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">library(tinytex)</span><br><span class="line">tlmgr_search(&#x27;/times.sty&#x27;)   # search for times.sty</span><br><span class="line">tlmgr_install(&#x27;psnfss&#x27;)      # install the psnfss package</span><br><span class="line">tlmgr_update()               # update everything</span><br><span class="line">update.packages(ask = FALSE, checkBuilt = TRUE)</span><br><span class="line"># please remember to restart R after updating packages</span><br></pre></td></tr></table></figure>
 <h3 id="5-3设置自动安装缺少宏包的全局选项"><a href="#5-3设置自动安装缺少宏包的全局选项" class="headerlink" title="5.3设置自动安装缺少宏包的全局选项"></a>5.3设置自动安装缺少宏包的全局选项</h3><p>如果缺少很多宏包，逐个测试、安装会很麻烦。可设置自动安装缺少宏包的全局选项：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options(tinytex.install_packages = TRUE)</span><br></pre></td></tr></table></figure>
 
