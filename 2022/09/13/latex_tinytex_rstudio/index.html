@@ -16,7 +16,7 @@
 <meta property="og:description" content="0为什么选择安装TinyTeX而不要TeXLiveTinyTeX 是一个瘦身版的 TeX Live。TeX Live 的庞大体型问题困扰我多年，其实方案很简单：把对普通用户毫无用处的源代码和文档去掉即可。最终精简安装TinyTeX体积不到200M，完全安装大约1.8G。 如果你安装了R语言的话，安装TinyTeX仅仅需要两行代码。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-09-13T10:09:42.000Z">
-<meta property="article:modified_time" content="2022-09-23T01:26:50.281Z">
+<meta property="article:modified_time" content="2022-09-23T01:38:34.101Z">
 <meta property="article:author" content="OVision Group">
 <meta property="article:tag" content="Latex">
 <meta property="article:tag" content="RMarkdown">
@@ -189,8 +189,13 @@
 <h2 id="1-R语言的安装"><a href="#1-R语言的安装" class="headerlink" title="1 R语言的安装"></a>1 R语言的安装</h2><p>下载网址：<a href="https://cran.r-project.org/">https://cran.r-project.org/</a>  选择base，下载完成后，单击文件以开始安装，科研修改了安装位置，建议在整个安装过程中保持所有默认设置。</p>
 <h2 id="2-RStudio编译器的安装"><a href="#2-RStudio编译器的安装" class="headerlink" title="2 RStudio编译器的安装"></a>2 RStudio编译器的安装</h2><p>选择Desktop桌面版，下载完成后，单击文件以开始安装，建议在整个安装过程中保持所有默认设置。</p>
 <p><strong>注意</strong>：安装路径中不能出现中文，并且和r语言在同一个父路径下。</p>
-<h3 id="RStudio更换默认下载镜像"><a href="#RStudio更换默认下载镜像" class="headerlink" title="RStudio更换默认下载镜像"></a>RStudio更换默认下载镜像</h3><pre class="mermaid">graph LR;
-    A(菜单栏Tools)  -->  D(Global Options)  -->  A(Package)  -->  A(CRAN Mirror)  -->  A(Change)</pre>
+<h3 id="RStudio更换默认下载镜像"><a href="#RStudio更换默认下载镜像" class="headerlink" title="RStudio更换默认下载镜像"></a>RStudio更换默认下载镜像</h3><pre class="mermaid">graph LR
+    A(菜单栏Tools) 
+    B(Global Options)
+    C(Package)
+    D(CRAN Mirror)
+    E(Change)
+    A --> B --> C --> D --> E</pre>
 
 <p>在跳出来的选项里, 选择你想选择的, 一般选择带有China 的会好一点. 选完之后不要忘了点击Apply 再点OK.</p>
 <h2 id="3-RMarkdown库的安装"><a href="#3-RMarkdown库的安装" class="headerlink" title="3 RMarkdown库的安装"></a>3 RMarkdown库的安装</h2><h3 id="RMarkdown库安装命令流"><a href="#RMarkdown库安装命令流" class="headerlink" title="RMarkdown库安装命令流"></a>RMarkdown库安装命令流</h3><p>打开RStudio,在可见的页面文本编辑框Console中输入R语言库的安装命令流：</p>
