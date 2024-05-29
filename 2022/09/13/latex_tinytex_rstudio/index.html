@@ -16,7 +16,7 @@
 <meta property="og:description" content="0为什么选择安装TinyTeX而不要TeXLiveTinyTeX 是一个瘦身版的 TeX Live。TeX Live 的庞大体型问题困扰我多年，其实方案很简单：把对普通用户毫无用处的源代码和文档去掉即可。最终精简安装TinyTeX体积不到200M，完全安装大约1.8G。 如果你安装了R语言的话，安装TinyTeX仅仅需要两行代码。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-09-13T10:09:42.000Z">
-<meta property="article:modified_time" content="2022-09-23T01:53:48.060Z">
+<meta property="article:modified_time" content="2024-05-29T08:25:17.457Z">
 <meta property="article:author" content="OVision Group">
 <meta property="article:tag" content="Latex">
 <meta property="article:tag" content="RMarkdown">
@@ -202,7 +202,7 @@
                                                         -->  A(Typeset LaTeX into PDF using 选择 XeLaTex)</pre>
 <p>XeLaTeX是使用LaTeX的排版引擎，也有上述XeTeX的优点，命令下直接使用xelatex(“xxxxxx.tex”)就会产生对应的PDF文件。</p>
 <h2 id="4-安装最后一步，也是主要的一步：TinyTeX的库的安装"><a href="#4-安装最后一步，也是主要的一步：TinyTeX的库的安装" class="headerlink" title="4 安装最后一步，也是主要的一步：TinyTeX的库的安装"></a>4 安装最后一步，也是主要的一步：TinyTeX的库的安装</h2><p>通过RStudio安装,我们已经有了一个完整的R语言开发环境，有了这个环境，我们可以使用两句R语言命令实现Tinytex开发环境的安装。b</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># requires a version tinytex &gt;= 0.40</span><br><span class="line">install.packages(&#x27;tinytex&#x27;)</span><br><span class="line">tinytex::install_tinytex()  #精简安装180M</span><br><span class="line"># to uninstall TinyTeX, run tinytex::uninstall_tinytex() </span><br><span class="line"></span><br><span class="line"># increase the download timeout to 2 hours just in case the</span><br><span class="line"># default 1 hour is not enough (you can further increase it)</span><br><span class="line">options(timeout = 7200)</span><br><span class="line"></span><br><span class="line">tinytex::install_tinytex(bundle = &#x27;TinyTeX-2&#x27;)#完全安装1.8G</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># requires a version tinytex &gt;= 0.40</span><br><span class="line">install.packages(&#x27;tinytex&#x27;)</span><br><span class="line">tinytex::install_tinytex()  #精简安装180M</span><br><span class="line"># to uninstall TinyTeX, run tinytex::uninstall_tinytex() </span><br><span class="line"></span><br><span class="line"># increase the download timeout to 2 hours just in case the</span><br><span class="line"># default 1 hour is not enough (you can further increase it)</span><br><span class="line">options(timeout = 7200)</span><br><span class="line"></span><br><span class="line">tinytex::install_tinytex(bundle = &#x27;TinyTeX-2&#x27;)#完全安装1.8G</span><br><span class="line"></span><br><span class="line">library(tinytex)</span><br><span class="line">tinytex:::install_prebuilt(pkg = &quot;D:/TinyTeX.zip&quot;)</span><br><span class="line">tinytex::tinytex_root()   # 查看默认安装路径</span><br><span class="line">tinytex::is_tinytex()  #显示TRUE则安装成功</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>如果有问题请查看官网详细帮助文档：<a href="https://yihui.org/tinytex/">https://yihui.org/tinytex/</a>  </p>
 <p>以及The binary packages of TinyTeX are released on the monthly basis to the Github repo <a href="https://github.com/rstudio/tinytex-releases">https://github.com/rstudio/tinytex-releases</a></p>
 <h2 id="5-TinyTeX的基本使用"><a href="#5-TinyTeX的基本使用" class="headerlink" title="5 TinyTeX的基本使用"></a>5 TinyTeX的基本使用</h2><p>由于使用时，肯定需要下载LaTeX宏包，所以先修改为国内镜像源，比如改为中科大大学的镜像源：<br>在RStudio中输入命令流：</p>
@@ -413,7 +413,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 OVision Group
+    		&copy; 2024 OVision Group
     	</div>
       	<div class="footer-right">
 			
@@ -561,14 +561,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gpu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">cuda</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ftp</a>
               </li>
              
@@ -578,6 +570,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gpu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">cuda</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,15 +629,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">issue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GTD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,6 +686,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">坚果云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">VSCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ESP8266</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">PlatformIO</a>
               </li>
             
             <div class="clearfix"></div>
