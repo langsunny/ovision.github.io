@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://ovision.github.io/img/sync2.png">
 <meta property="og:image" content="http://ovision.github.io/img/sync3.png">
 <meta property="article:published_time" content="2024-12-18T09:09:42.000Z">
-<meta property="article:modified_time" content="2024-12-18T00:54:51.323Z">
+<meta property="article:modified_time" content="2024-12-18T01:29:20.452Z">
 <meta property="article:author" content="OVision Group">
 <meta property="article:tag" content="Syncthing">
 <meta property="article:tag" content="delete">
@@ -194,10 +194,11 @@
 <p><img src="/img/phone1.jpg" alt="手机容量不足"></p>
 <h2 id="1-安装Syncthing"><a href="#1-安装Syncthing" class="headerlink" title="1    安装Syncthing"></a>1    安装Syncthing</h2><p> Syncthing安装的方法非常简单，其优点是跨平台且开源，好像暂不支持ios平台。</p>
 <p>官网：<a href="https://syncthing.net/">https://syncthing.net/</a><br>项目地址：<a href="https://github.com/syncthing/syncthing">https://github.com/syncthing/syncthing</a></p>
-<h2 id="1-Syncthing基本设置与使用"><a href="#1-Syncthing基本设置与使用" class="headerlink" title="1   Syncthing基本设置与使用"></a>1   Syncthing基本设置与使用</h2><p>私有云或PC和Android手机上都安装好Syncthing后，扫码或者通过密钥可互相建立连接。之后，添加需要同步的目录，并勾选上接受文件的设备。</p>
-<h3 id="手机端。由于不希望电脑端的文件变化影响手机端的文件，将手机端设为了仅发送，将私有云-x2F-PC端设置成了仅接收。需要注意的是，若是手机上的文件被删除，PC上的文件也会同步被删除-如何能够实现删除手机内容的同时保留私有云的网络备份呢？"><a href="#手机端。由于不希望电脑端的文件变化影响手机端的文件，将手机端设为了仅发送，将私有云-x2F-PC端设置成了仅接收。需要注意的是，若是手机上的文件被删除，PC上的文件也会同步被删除-如何能够实现删除手机内容的同时保留私有云的网络备份呢？" class="headerlink" title="手机端。由于不希望电脑端的文件变化影响手机端的文件，将手机端设为了仅发送，将私有云&#x2F;PC端设置成了仅接收。需要注意的是，若是手机上的文件被删除，PC上的文件也会同步被删除,如何能够实现删除手机内容的同时保留私有云的网络备份呢？"></a>手机端。由于不希望电脑端的文件变化影响手机端的文件，将手机端设为了<strong>仅发送</strong>，将私有云&#x2F;PC端设置成了<strong>仅接收</strong>。需要注意的是，若是<strong>手机上的文件被删除，PC上的文件也会同步被删除</strong>,如何能够实现删除手机内容的同时保留私有云的网络备份呢？</h3><p><img src="/img/sync1.jpg" alt="移动端设置"></p>
-<h3 id="启用文件版本控制。"><a href="#启用文件版本控制。" class="headerlink" title="启用文件版本控制。"></a>启用文件版本控制。</h3><p>    <img src="/img/sync2.png" alt="启用文件版本控制"><br>启用之后，在手机上的文件被删除时，PC端上的文件会被移入特别的垃圾箱。但是这个不是很方便，需要启用Ignore Delete才能一劳永逸。</p>
-<h3 id="启用Ignore-Delete"><a href="#启用Ignore-Delete" class="headerlink" title="启用Ignore Delete"></a>启用Ignore Delete</h3><p>打开设置页右上角的操作-高级-文件夹，选择你需要配置的文件夹，找到Ignore Delete选项，将其勾选并保存。</p>
+<h2 id="2-Syncthing基本设置与使用"><a href="#2-Syncthing基本设置与使用" class="headerlink" title="2   Syncthing基本设置与使用"></a>2   Syncthing基本设置与使用</h2><p>私有云或PC和Android手机上都安装好Syncthing后，扫码或者通过密钥可互相建立连接。之后，添加需要同步的目录，并勾选上接受文件的设备。</p>
+<h3 id="1-手机端。"><a href="#1-手机端。" class="headerlink" title="1 手机端。"></a>1 手机端。</h3><p>由于不希望电脑端的文件变化影响手机端的文件，将手机端设为了<strong>仅发送</strong>，将私有云&#x2F;PC端设置成了<strong>仅接收</strong>。需要注意的是，若是<strong>手机上的文件被删除，PC上的文件也会同步被删除</strong>,如何能够实现删除手机内容的同时保留私有云的网络备份呢？</p>
+<p><img src="/img/sync1.jpg" alt="移动端设置"></p>
+<h3 id="2-启用文件版本控制。"><a href="#2-启用文件版本控制。" class="headerlink" title="2 启用文件版本控制。"></a>2 启用文件版本控制。</h3><p>    <img src="/img/sync2.png" alt="启用文件版本控制"><br>启用之后，在手机上的文件被删除时，PC端上的文件会被移入特别的垃圾箱。但是这个不是很方便，需要启用Ignore Delete才能一劳永逸。</p>
+<h3 id="3-启用Ignore-Delete"><a href="#3-启用Ignore-Delete" class="headerlink" title="3 启用Ignore Delete"></a>3 启用Ignore Delete</h3><p>打开设置页右上角的操作-高级-文件夹，选择你需要配置的文件夹，找到Ignore Delete选项，将其勾选并保存。</p>
 <p><img src="/img/sync3.png" alt="启用Ignore Delete"></p>
 <h2 id="1-结语"><a href="#1-结语" class="headerlink" title="1    结语"></a>1    结语</h2><p>本次简单介绍了使用syncthing 备份手机资料的方法，学会之后就可以随意使用手机了。 </p>
 
