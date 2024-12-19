@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://ovision.github.io/img/sync2.png">
 <meta property="og:image" content="http://ovision.github.io/img/sync3.png">
 <meta property="article:published_time" content="2024-12-18T09:09:42.000Z">
-<meta property="article:modified_time" content="2024-12-18T01:29:20.452Z">
+<meta property="article:modified_time" content="2024-12-19T02:36:46.759Z">
 <meta property="article:author" content="OVision Group">
 <meta property="article:tag" content="Syncthing">
 <meta property="article:tag" content="delete">
@@ -198,9 +198,9 @@
 <h3 id="1-手机端。"><a href="#1-手机端。" class="headerlink" title="1 手机端。"></a>1 手机端。</h3><p>由于不希望电脑端的文件变化影响手机端的文件，将手机端设为了<strong>仅发送</strong>，将私有云&#x2F;PC端设置成了<strong>仅接收</strong>。需要注意的是，若是<strong>手机上的文件被删除，PC上的文件也会同步被删除</strong>,如何能够实现删除手机内容的同时保留私有云的网络备份呢？</p>
 <p><img src="/img/sync1.jpg" alt="移动端设置"></p>
 <h3 id="2-启用文件版本控制。"><a href="#2-启用文件版本控制。" class="headerlink" title="2 启用文件版本控制。"></a>2 启用文件版本控制。</h3><p>    <img src="/img/sync2.png" alt="启用文件版本控制"><br>启用之后，在手机上的文件被删除时，PC端上的文件会被移入特别的垃圾箱。但是这个不是很方便，需要启用Ignore Delete才能一劳永逸。</p>
-<h3 id="3-启用Ignore-Delete"><a href="#3-启用Ignore-Delete" class="headerlink" title="3 启用Ignore Delete"></a>3 启用Ignore Delete</h3><p>打开设置页右上角的操作-高级-文件夹，选择你需要配置的文件夹，找到Ignore Delete选项，将其勾选并保存。</p>
+<h3 id="3-启用Ignore-Delete"><a href="#3-启用Ignore-Delete" class="headerlink" title="3 启用Ignore Delete"></a>3 启用Ignore Delete</h3><p>在Syncthing云端或PC的管理页面<a href="http://192.168.xxx.xxx:8384/#%EF%BC%8C%E7%82%B9%E5%87%BB%E8%AE%BE%E7%BD%AE%E9%A1%B5%E5%8F%B3%E4%B8%8A%E8%A7%92%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%8C%E4%BE%9D%E6%AC%A1%E9%80%89%E6%8B%A9-&gt;%E9%AB%98%E7%BA%A7-&gt;%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E9%80%89%E6%8B%A9%E4%BD%A0%E9%9C%80%E8%A6%81%E9%85%8D%E7%BD%AE%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E6%89%BE%E5%88%B0Ignore">http://192.168.xxx.xxx:8384/#，点击设置页右上角的操作，依次选择-&gt;高级-&gt;文件夹，选择你需要配置的文件夹，找到Ignore</a> Delete选项，将其勾选并保存。</p>
 <p><img src="/img/sync3.png" alt="启用Ignore Delete"></p>
-<h2 id="1-结语"><a href="#1-结语" class="headerlink" title="1    结语"></a>1    结语</h2><p>本次简单介绍了使用syncthing 备份手机资料的方法，学会之后就可以随意使用手机了。 </p>
+<h2 id="1-结语"><a href="#1-结语" class="headerlink" title="1    结语"></a>1    结语</h2><p>本次简单介绍了使用syncthing 备份手机资料的方法，设置好之后，syncthing会自动备份你选择的文件夹，如果你选择备份相机文件夹后，相册内容就可以随意删除了。 </p>
 
       
 
